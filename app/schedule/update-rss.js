@@ -67,7 +67,7 @@ class UpdateCache extends Subscription {
     parseString(res.data, async (err, result) => {
       this.ctx.logger.info('some request data: %j', result);
       const list = result.rss.channel[0].item;
-      const foldPath = path.resolve(__dirname, '../../logs/file');
+      const foldPath = path.resolve(this.config.logger.dir, './file');
       if (!fs.existsSync(foldPath)) {
         fs.mkdirSync(foldPath);
       }

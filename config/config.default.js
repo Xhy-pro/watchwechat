@@ -1,7 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
-
+const path = require('path');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -22,9 +22,12 @@ module.exports = appInfo => {
   const userConfig = {
     // myAppName: 'egg',
   };
-
+  const logger = {
+    dir: path.resolve(__dirname, '../logs'),
+  };
   return {
     ...config,
     ...userConfig,
+    logger,
   };
 };
